@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pets | Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <style>
+      /* Estilos para el aviso */
+      .aviso {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f8f8f8;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        cursor: pointer;
+      }
+      .aviso-content{
+        position:absolute;
+        z-index:10000;
+        top:0;
+        left:0;
+        width:100%;
+        height:100vh;
+        background:rgb(0 0 0 / .9);
+      }
+    </style>
+  </head>
+  <body>
+    <btn-regresar mihref="/portafolio" miname="regresar"></btn-regresar>
+    <script>
+      document.querySelector('body').style.overflow='hidden'
+       function quitarAviso() {
+        var aviso = document.querySelector('.aviso-content');
+        aviso.parentNode.removeChild(aviso);
+        document.querySelector('body').style.overflow='visible'
+         window.scrollTo(0, 0); 
+      }
+      </script>
+      <div class="aviso-content" onclick="quitarAviso()">
+        <div class="aviso">
+      <p>Este es un aviso. Haz clic para quitarlo.</p>
+      </div>
+    </div>
+    <header id=header>
+      <span>My Pets</span>
+      <input type="checkbox" id="menu-bar">
+      <label for="menu-bar"><i class="fa-solid fa-bars"></i></label>
+
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Mascotas</a>
+        <a href="#">Blog</a>
+        <a href="#">Contacto</a>
+    </header>
+    <main>
+      <section id="banner">
+        <h2>Mascotas Felices</h2>
+        <p>Las mascotas felices alegran nuestros días y llenan nuestros corazones de amor</p>
+      </section>
+      <section id="bienvenidos">
+        <h2>Cards example</h2>
+        <div class="grid">
+        <nft-crypto></nft-crypto>
+        <order-summary></order-summary>
+        </div>
+      </section>
+      <section id="video">
+            <video-ia></video-ia>
+      </section>
+      <section id="blog">
+        <h3>Input info</h3>
+        <div class="expand-forms">
+        <results-summary></results-summary>
+        <form-pinterest></form-pinterest>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <p>My pets &copy; 2023</p>
+      <nav>
+        <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+        <a href=""><i class="fa-brands fa-instagram"></i></a>
+        <a href=""><i class="fa-brands fa-twitter"></i></a>
+    </footer>
+    <script src="js/nft-crypto.js" type="module"></script>
+    <script src="js/order-summary.js" type="module"></script>
+    <script src="js/results-summary.js" type="module"></script>
+    <script src="js/form-pinterest.js" type="module"></script>
+    <script src="js/video-ia.js" type="module"></script>
+    <script>
+
+let api = `https://api.thedogapi.com/v1/images/search?limit=`
+async function getFetch(URL){
+  let res = await fetch(`${URL}${1}`)
+  let data = await res.json()
+  console.log(data)
+  render(data) 
+}
+getFetch(api)
+function render(obj){
+  let [{url}] = obj
+  document.querySelector('#banner').style.backgroundImage = `url("${url}")`
+}
+      </script>
+    <script src="../components/btnRegresar.js" type=module></script>
+  </body>
+</html>
+

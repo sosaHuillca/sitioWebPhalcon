@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  app2:
+    container_name: app2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./app2:/var/www/html
+    ports:
+      - '3000:80'
+    expose:
+      - '3000'
+    depends_on:
+      - mysql2
+    links:
+      - mysql2
+
+  mysql2:
+    container_name: mysql2
+    image: mysql:8
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: phalcon_app
+      MYSQL_ROOT_PASSWORD: root
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql2
+    ports:
+      - '3306:3306'

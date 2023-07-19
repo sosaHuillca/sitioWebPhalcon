@@ -1,0 +1,12 @@
+{
+  "name": "carritocompras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npx live-server --browser=firefox ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

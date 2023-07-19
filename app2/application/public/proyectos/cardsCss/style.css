@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+body{
+  margin:0;
+  font-family:'Open Sans', sans-serif;
+}
+
+img{
+  width:100%;
+}
+a{
+  text-decoration:none;
+  color:inherit;
+}
+#header{
+  display:flex;
+  justify-content:space-between;
+
+  background-color:rgba(51, 51, 51, .9);
+
+  position:relative;
+  padding:6px;
+
+  /*elements*/
+  font-size:2rem;
+  color:#fff;
+}
+
+#header>span{
+  font-weight:bold;
+  display:inline-block;
+}
+
+#menu-bar{ display:none }
+
+#header>label{
+  cursor:pointer;
+}
+
+label+nav{
+  position:absolute;
+  width:100%;
+  top:58px;
+  left:0;
+  transform:translateX(-100%);
+  transition:transform .5s;
+
+  display:grid;
+  background-color:rgba(51, 51, 51, .9);
+  z-index:100;
+
+}
+
+
+nav>a{
+  border-bottom:1px solid rgba(255, 255, 255, .5);
+  font-size:1.3rem;
+  text-align:center;
+  padding:10px;
+}
+nav>a:hover{
+  border-bottom:1px solid rgba(255, 255, 255, .3)
+}
+
+#menu-bar:checked ~ nav{
+  transform:translateX(0%);
+}
+
+@media screen and (min-width:500px){
+  #header{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  #header>label{ display:none }
+  #header>nav{
+    display:flex;
+    justify-content:space-around;
+    position:static;
+    width:100%;
+    transform:translateX(0%);
+    background-color:transparent;
+  }
+  nav>a{
+    border-bottom:none;
+  }
+}
+
+/*
+ * BANNER
+ */
+
+#banner{
+  background-size:contain;
+  padding:20px;
+  min-height:40vh;
+  background-size:cover;
+
+  display:grid;
+  place-content:center;
+
+  color:#fff;
+  font-size:1.5rem;
+  position:relative;
+}
+#banner::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-color:rgba(0, 0, 0, .4);
+}
+#banner>h2,
+#banner>p,
+#banner>button{
+  z-index:2;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  margin-bottom:35px;
+}
+@media screen and (min-width:500px){
+  main{
+    display:grid;
+    grid-template-areas:
+    "banner banner"
+    "bienvenidos bienvenidos"
+    "video video"
+    "blog blog";
+  }
+  #bienvenidos{ grid-area:bienvenidos }
+  #banner{ grid-area:banner }
+  #blog{ grid-area:blog }
+  #video{ grid-area:video }
+
+}
+#banner>h2{
+  margin-top:.1px;
+}
+#banner>button{
+  padding:10px 15px;
+  background-color:transparent;
+  border:1px solid white;
+  border-radius:10px;
+  color:white;
+  font-size:1.2rem;
+  justify-self:center;
+}
+
+#bienvenidos{
+  padding:0 15px;
+}
+
+#blog{
+  padding:10px;
+}
+#blog div{
+  /*
+  display:grid;
+  gap:20px;
+  */
+}
+.expand-forms{
+  display: flex;
+flex-wrap: wrap;
+gap:20px;
+}
+
+#footer{
+  display:grid;
+  justify-content:center;
+}
+#footer a{
+  font-size:1.5rem;
+}
